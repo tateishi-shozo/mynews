@@ -1,13 +1,13 @@
-@extends('layouts.profile')
-
-@section('title', 'プロフィールの新規登録')
+@extends('layouts.admin')
+@section('title', 'Myプロフィールの新規作成')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>Myプロフィール</h2>
-                <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="text/plain">
+                <h2>Myプロフィールの新規作成</h2>
+                <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
+
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -16,22 +16,24 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">氏名</label>
+                        <label class="col-md-2">名前</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="name" value="{{old('name') }}"/>
+                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">性別</label>
-                        <div class="col-md-10">
-                            <input type="radio" name="gender" vale="male">男性
-                            <input type="radio" name="gender" vale="female">女性
+                        <label class="col-md-4">性別</label>
+                        <div class="col-md-6">
+                            <input id="1" type="radio" class="form-control" name="gender" value="1">
+                                <label for="1">男</label>
+                            <input id="2" type="radio" class="form-control" name="gender" value="2">
+                                <label for="2">女</label>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">趣味</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="hobby" value="{{old('hobby') }}"/>
+                            <input type="text" class="form-control" name="hobby" value="{{ old('hobby') }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -41,7 +43,7 @@
                         </div>
                     </div>
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" name="更新">
+                    <input type="submit" class="btn btn-primary" value="送信">
                 </form>
             </div>
         </div>
