@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h2>ニュース一覧</h2><br>
+            <h2>ニュース一覧</h2><br />
             <h3>最近の出来事を投稿してみよう！</h3>
         </div>
         <div class="row">
